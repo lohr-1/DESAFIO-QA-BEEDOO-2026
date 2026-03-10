@@ -1,24 +1,27 @@
 # Bug Report — Beedoo QA Challenge
 
-> **AUT:** https://creative-sherbet-a51eac.netlify.app/  
-> **Data:** 2026-03-08  
-> **Testador:** QA Sênior
+## Sumário de Bugs
 
----
-
-## Bugs Confirmados
-
-*Evidenciados diretamente na análise estática da aplicação, reproduzíveis sem execução de testes.*
+| ID | Título (resumido) |
+|---|---|
+| BUG-001 | Typo "Chalenge" no título da aplicação |
+| BUG-002 | Rota `/new-course` retorna 404 em acesso direto |
+| BUG-003 | Datas invertidas são aceitas sem validação |
+| BUG-004 | Campo de vagas aceita valor zero ou negativo |
+| BUG-005 | Nome do curso aceita apenas espaços em branco |
+| BUG-006 | Typo no título da aplicação (versão detalhada duplicada) |
+| BUG-007 | Rota `/new-course` retorna 404 (versão detalhada duplicada) |
+| BUG-008 | Datas invertidas aceitas sem validação |
+| BUG-009 | Vagas com valor negativo ou zero aceitas |
+| BUG-010 | Campo "Nome do curso" aceita apenas espaços |
+| BUG-011 | Instrutor e tipo de curso não são exibidos na listagem |
+| BUG-012 | Formulário permite envio sem preencher campos obrigatórios |
+| BUG-013 | Nome do curso aceita HTML sem escape |
+| BUG-014 | Exclusão de curso não atualiza a listagem imediatamente |
 
 ---
 
 ### BUG-001 — Typo no título da aplicação
-
-| Campo | Detalhe |
-|---|---|
-| **Severidade** | Low |
-| **Prioridade** | Low |
-| **Status** | Aberto |
 
 **Passos para reproduzir**  
 Acessar qualquer página da aplicação e observar o cabeçalho.
@@ -33,21 +36,12 @@ Beedoo QA Chalenge
 Beedoo QA Challenge
 ```
 
-**Impacto**  
-Perda de credibilidade de marca. Sem impacto funcional.
-
 **Correção**  
 Substituir o literal `"Chalenge"` por `"Challenge"` no componente de cabeçalho.
 
 ---
 
 ### BUG-002 — Rota `/new-course` retorna 404 em acesso direto
-
-| Campo | Detalhe |
-|---|---|
-| **Severidade** | Medium |
-| **Prioridade** | High |
-| **Status** | Aberto |
 
 **Passos para reproduzir**  
 Digitar diretamente no navegador: `https://creative-sherbet-a51eac.netlify.app/new-course`
@@ -69,21 +63,10 @@ Adicionar `public/_redirects`:
 ```
 /*  /index.html  200
 ```
-
----
-
-## Bugs Suspeitos
-
-*Identificados por análise do comportamento esperado. Requerem execução dos testes para confirmar.*
-
 ---
 
 ### BUG-003 — Datas invertidas aceitas sem validação
 
-| Campo | Detalhe |
-|---|---|
-| **Severidade** | High |
-| **Prioridade** | High |
 | **Spec** | `05-negative-scenarios.cy.js` |
 
 **Cenário**  
@@ -107,9 +90,6 @@ if (new Date(dataFim) < new Date(dataInicio)) {
 
 ### BUG-004 — Vagas negativas ou zero aceitas
 
-| Campo | Detalhe |
-|---|---|
-| **Severidade** | Medium |
 | **Spec** | `05-negative-scenarios.cy.js` |
 
 **Cenário**  
@@ -127,9 +107,6 @@ O atributo `min` não está definido no `input[type="number"]`, permitindo valor
 
 ### BUG-005 — Nome do curso aceita somente espaços em branco
 
-| Campo | Detalhe |
-|---|---|
-| **Severidade** | Low |
 | **Spec** | `02-field-validations.cy.js` |
 
 **Cenário**  
@@ -145,19 +122,15 @@ if (!nomeCurso.trim()) {
   return
 }
 ```
-
 ---
 
-## BUG-001 — Typo no título da aplicação
+## BUG-006 — Typo no título da aplicação
 
 | Campo | Detalhe |
 |---|---|
-| **ID** | BUG-001 |
 | **Título** | Título da aplicação exibe "Chalenge" em vez de "Challenge" |
 | **Módulo** | Global — cabeçalho / `<title>` / navbar |
-| **Severidade** | Low |
-| **Prioridade** | Low |
-| **Status** | Aberto |
+
 
 ### Passos para reproduzir
 
@@ -190,16 +163,12 @@ Corrigir o literal `"Chalenge"` para `"Challenge"` no componente de cabeçalho /
 
 ---
 
-## BUG-002 — Rota `/new-course` retorna 404 em acesso direto
+## BUG-007 — Rota `/new-course` retorna 404 em acesso direto
 
 | Campo | Detalhe |
 |---|---|
-| **ID** | BUG-002 |
 | **Título** | Acesso direto à URL `/new-course` resulta em página 404 |
 | **Módulo** | Roteamento / Configuração de deploy (Netlify) |
-| **Severidade** | Medium |
-| **Prioridade** | High |
-| **Status** | Aberto |
 
 ### Passos para reproduzir
 
@@ -257,16 +226,12 @@ Adicionar o arquivo `public/_redirects`:
 
 ---
 
-## BUG-003 — [Potencial] Datas invertidas aceitas sem validação
+## BUG-008 — Datas invertidas aceitas sem validação
 
 | Campo | Detalhe |
 |---|---|
-| **ID** | BUG-003 |
 | **Título** | Formulário pode aceitar data de fim anterior à data de início |
 | **Módulo** | Cadastro de Curso — validação de campos de data |
-| **Severidade** | High |
-| **Prioridade** | High |
-| **Status** | Confirmado (spec `05-negative-scenarios.cy.js` — teste falha ao submeter) |
 
 ### Passos para reproduzir
 
@@ -277,7 +242,7 @@ Adicionar o arquivo `public/_redirects`:
 5. Definir **Data de fim**: `2026-01-01`
 6. Clicar em "Cadastrar"
 
-### Resultado atual (suspeito)
+### Resultado atual
 
 O curso é cadastrado sem exibir mensagem de erro, mesmo com o período sendo logicamente inválido.
 
@@ -303,17 +268,12 @@ if (dataFim < dataInicio) {
 
 ---
 
-## BUG-004 — [Potencial] Vagas com valor negativo ou zero aceitas
+## BUG-009 — Vagas com valor negativo ou zero aceitas
 
 | Campo | Detalhe |
 |---|---|
-| **ID** | BUG-004 |
 | **Título** | Campo "Número de vagas" pode aceitar valor 0 ou negativo |
 | **Módulo** | Cadastro de Curso — campo de vagas |
-| **Severidade** | Medium |
-| **Prioridade** | Medium |
-| **Status** | Confirmado |
-3. Submeter o formulário
 
 ### Resultado esperado
 
@@ -326,23 +286,14 @@ Adicionar o atributo `min="1"` no campo de vagas:
 ```html
 <input type="number" name="vagas" min="1" required />
 ```
-
-E validar também no cliente antes do submit.
-
 ---
 
-## BUG-005 — [Potencial] Campo "Nome do curso" aceita apenas espaços
+## BUG-010 — Campo "Nome do curso" aceita apenas espaços
 
 | Campo | Detalhe |
 |---|---|
-| **ID** | BUG-005 |
 | **Título** | Campo obrigatório "Nome do curso" pode ser preenchido com espaços em branco |
 | **Módulo** | Cadastro de Curso — validação de campos de texto |
-| **Severidade** | Medium |
-| **Prioridade** | Low |
-| **Status** | Confirmado (spec `02-field-validations.cy.js` — whitespace name test falha) |
-3. Preencher os demais campos corretamente
-4. Submeter
 
 ### Resultado esperado
 
@@ -356,21 +307,14 @@ if (!nomeCurso.trim()) {
   return
 }
 ```
-
 ---
 
----
-
-## BUG-006 — Campos coletados "Instrutor" e "Tipo de curso" não exibidos na listagem
+## BUG-011 — Campos coletados "Instrutor" e "Tipo de curso" não exibidos na listagem
 
 | Campo | Detalhe |
 |---|---|
-| **ID** | BUG-006 |
 | **Título** | Instrutor e tipo de curso são coletados no formulário mas omitidos nos cards da listagem |
 | **Módulo** | Listagem de Cursos — renderização do card |
-| **Severidade** | Medium |
-| **Prioridade** | Medium |
-| **Status** | Confirmado (via inspeção do DOM gerado) |
 
 ### Passos para reproduzir
 
@@ -417,16 +361,12 @@ Renderizar os campos no template do card:
 
 ---
 
-## BUG-007 — Formulário aceita envio sem preencher campos obrigatórios
+## BUG-012 — Formulário aceita envio sem preencher campos obrigatórios
 
 | Campo | Detalhe |
 |---|---|
-| **ID** | BUG-007 |
 | **Título** | Botão "Cadastrar" submete o formulário mesmo com todos os campos vazios |
 | **Módulo** | Cadastro de Curso — validação de entrada |
-| **Severidade** | High |
-| **Prioridade** | High |
-| **Status** | Confirmado (spec `02-field-validations.cy.js` — 8/8 testes falhando) |
 
 ### Passos para reproduzir
 
@@ -463,16 +403,12 @@ Registros corrompidos entram na base — nome nulo, sem instrutor, sem datas. Qu
 
 ---
 
-## BUG-008 — XSS armazenado: nome do curso com tags HTML é renderizado sem escape
+## BUG-013 — XSS armazenado: nome do curso com tags HTML é renderizado sem escape
 
 | Campo | Detalhe |
 |---|---|
-| **ID** | BUG-008 |
 | **Título** | Nome do curso aceita e renderiza HTML bruto — XSS armazenado confirmado |
 | **Módulo** | Listagem de Cursos — renderização do card |
-| **Severidade** | Critical |
-| **Prioridade** | Critical |
-| **Status** | Confirmado (spec `05-negative-scenarios.cy.js` — XSS test falhando) |
 
 ### Passos para reproduzir
 
@@ -518,16 +454,12 @@ Adicionalmente, sanitizar entradas no servidor antes de persistir.
 
 ---
 
-## BUG-009 — Exclusão de curso não atualiza a listagem reativamente
+## BUG-014 — Exclusão de curso não atualiza a listagem reativamente
 
 | Campo | Detalhe |
 |---|---|
-| **ID** | BUG-009 |
 | **Título** | Após clicar em "Excluir curso", o card permanece visível até o usuário recarregar a página |
 | **Módulo** | Listagem de Cursos — exclusão |
-| **Severidade** | Medium |
-| **Prioridade** | Medium |
-| **Status** | Confirmado (spec `07-course-deletion.cy.js` — 2/3 testes falhando) |
 
 ### Passos para reproduzir
 
@@ -560,18 +492,3 @@ const index = cursos.value.findIndex(c => c.id === cursoId)
 if (index !== -1) cursos.value.splice(index, 1)
 ```
 
----
-
-## Sumário de Bugs
-
-| ID | Título (resumido) | Severidade | Status |
-|---|---|---|---|
-| BUG-001 | Typo "Chalenge" no título | Low | Aberto |
-| BUG-002 | `/new-course` retorna 404 (SPA redirect ausente) | Medium | Aberto |
-| BUG-003 | Datas invertidas aceitas sem validação | High | Confirmado |
-| BUG-004 | Vagas negativas/zero aceitas | Medium | Confirmado |
-| BUG-005 | Nome com apenas espaços aceito | Medium | Confirmado |
-| BUG-006 | Instrutor e tipo de curso não exibidos no card | Medium | Confirmado |
-| BUG-007 | Formulário submete sem preencher campos obrigatórios | High | Confirmado |
-| BUG-008 | XSS armazenado — HTML no nome do curso renderizado sem escape | **Critical** | Confirmado |
-| BUG-009 | Exclusão não atualiza a listagem reativamente | Medium | Confirmado |
