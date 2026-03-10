@@ -3,6 +3,9 @@
 Aplicação analisada:  
 https://creative-sherbet-a51eac.netlify.app/
 
+Caso de teste:
+https://docs.google.com/spreadsheets/d/1DgzbOIeR5XJWfiOW8OIMiHsf3Xp8T_jVhRdWnT_44cY/edit?usp=sharing
+
 ---
 
 # 1. Objetivo da aplicação
