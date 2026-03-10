@@ -23,6 +23,13 @@
 
 ### BUG-001 — Typo no título da aplicação
 
+| Campo | Detalhe |
+|---|---|
+| **Título** | Título da aplicação exibe "Chalenge" em vez de "Challenge" |
+| **Módulo** | Global — cabeçalho / navbar |
+| **Severidade** | Baixa |
+| **Impacto** | Problema visual que afeta a percepção de qualidade da aplicação, mas não interfere no funcionamento do sistema |
+
 **Passos para reproduzir**  
 Acessar qualquer página da aplicação e observar o cabeçalho.
 
@@ -42,6 +49,13 @@ Substituir o literal `"Chalenge"` por `"Challenge"` no componente de cabeçalho.
 ---
 
 ### BUG-002 — Rota `/new-course` retorna 404 em acesso direto
+
+| Campo | Detalhe |
+|---|---|
+| **Título** | Acesso direto à URL `/new-course` resulta em página 404 |
+| **Módulo** | Roteamento / Configuração de deploy |
+| **Severidade** | Média |
+| **Impacto** | Usuários não conseguem acessar a tela de cadastro por link direto, bookmark ou link compartilhado |
 
 **Passos para reproduzir**  
 Digitar diretamente no navegador: `https://creative-sherbet-a51eac.netlify.app/new-course`
@@ -67,6 +81,13 @@ Adicionar `public/_redirects`:
 
 ### BUG-003 — Datas invertidas aceitas sem validação
 
+| Campo | Detalhe |
+|---|---|
+| **Título** | Formulário aceita data de fim anterior à data de início |
+| **Módulo** | Cadastro de Curso — validação de datas |
+| **Severidade** | Alta |
+| **Impacto** | Permite cadastro de cursos com período inválido, comprometendo relatórios e integridade dos dados |
+
 | **Spec** | `05-negative-scenarios.cy.js` |
 
 **Cenário**  
@@ -90,6 +111,13 @@ if (new Date(dataFim) < new Date(dataInicio)) {
 
 ### BUG-004 — Vagas negativas ou zero aceitas
 
+| Campo | Detalhe |
+|---|---|
+| **Título** | Campo "Número de vagas" aceita valores negativos ou zero |
+| **Módulo** | Cadastro de Curso — campo de vagas |
+| **Severidade** | Média |
+| **Impacto** | Permite criação de cursos com capacidade inválida, gerando inconsistência nos dados |
+
 | **Spec** | `05-negative-scenarios.cy.js` |
 
 **Cenário**  
@@ -106,6 +134,13 @@ O atributo `min` não está definido no `input[type="number"]`, permitindo valor
 ---
 
 ### BUG-005 — Nome do curso aceita somente espaços em branco
+
+| Campo | Detalhe |
+|---|---|
+| **Título** | Campo obrigatório "Nome do curso" aceita apenas espaços em branco |
+| **Módulo** | Cadastro de Curso — validação de campos de texto |
+| **Severidade** | Média |
+| **Impacto** | Permite cadastro de cursos sem identificação válida na listagem |
 
 | **Spec** | `02-field-validations.cy.js` |
 
@@ -130,7 +165,8 @@ if (!nomeCurso.trim()) {
 |---|---|
 | **Título** | Título da aplicação exibe "Chalenge" em vez de "Challenge" |
 | **Módulo** | Global — cabeçalho / `<title>` / navbar |
-
+| **Severidade** | Baixa |
+| **Impacto** | Problema visual que afeta a percepção de qualidade da aplicação, mas não interfere no funcionamento do sistema |
 
 ### Passos para reproduzir
 
@@ -168,7 +204,9 @@ Corrigir o literal `"Chalenge"` para `"Challenge"` no componente de cabeçalho /
 | Campo | Detalhe |
 |---|---|
 | **Título** | Acesso direto à URL `/new-course` resulta em página 404 |
-| **Módulo** | Roteamento / Configuração de deploy (Netlify) |
+| **Módulo** | Roteamento / Configuração de deploy |
+| **Severidade** | Média |
+| **Impacto** | Usuários não conseguem acessar a tela de cadastro por link direto, bookmark ou link compartilhado |
 
 ### Passos para reproduzir
 
@@ -230,8 +268,10 @@ Adicionar o arquivo `public/_redirects`:
 
 | Campo | Detalhe |
 |---|---|
-| **Título** | Formulário pode aceitar data de fim anterior à data de início |
-| **Módulo** | Cadastro de Curso — validação de campos de data |
+| **Título** | Formulário aceita data de fim anterior à data de início |
+| **Módulo** | Cadastro de Curso — validação de datas |
+| **Severidade** | Alta |
+| **Impacto** | Permite cadastro de cursos com período inválido, comprometendo relatórios e integridade dos dados |
 
 ### Passos para reproduzir
 
@@ -272,8 +312,10 @@ if (dataFim < dataInicio) {
 
 | Campo | Detalhe |
 |---|---|
-| **Título** | Campo "Número de vagas" pode aceitar valor 0 ou negativo |
+| **Título** | Campo "Número de vagas" aceita valores negativos ou zero |
 | **Módulo** | Cadastro de Curso — campo de vagas |
+| **Severidade** | Média |
+| **Impacto** | Permite criação de cursos com capacidade inválida, gerando inconsistência nos dados |
 
 ### Resultado esperado
 
@@ -292,8 +334,10 @@ Adicionar o atributo `min="1"` no campo de vagas:
 
 | Campo | Detalhe |
 |---|---|
-| **Título** | Campo obrigatório "Nome do curso" pode ser preenchido com espaços em branco |
+| **Título** | Campo obrigatório "Nome do curso" aceita apenas espaços em branco |
 | **Módulo** | Cadastro de Curso — validação de campos de texto |
+| **Severidade** | Média |
+| **Impacto** | Permite cadastro de cursos sem identificação válida na listagem |
 
 ### Resultado esperado
 
@@ -313,8 +357,12 @@ if (!nomeCurso.trim()) {
 
 | Campo | Detalhe |
 |---|---|
-| **Título** | Instrutor e tipo de curso são coletados no formulário mas omitidos nos cards da listagem |
-| **Módulo** | Listagem de Cursos — renderização do card |
+| **Título** | Campos "Instrutor" e "Tipo de curso" não são exibidos nos cards da listagem |
+| **Módulo** | Listagem de Cursos |
+| **Severidade** | Média |
+| **Impacto** | Informações importantes coletadas no cadastro não são exibidas ao usuário |
+
+---
 
 ### Passos para reproduzir
 
@@ -365,8 +413,10 @@ Renderizar os campos no template do card:
 
 | Campo | Detalhe |
 |---|---|
-| **Título** | Botão "Cadastrar" submete o formulário mesmo com todos os campos vazios |
-| **Módulo** | Cadastro de Curso — validação de entrada |
+| **Título** | Formulário permite envio mesmo com campos obrigatórios vazios |
+| **Módulo** | Cadastro de Curso — validação de formulário |
+| **Severidade** | Alta |
+| **Impacto** | Permite criação de registros inválidos ou incompletos no sistema |
 
 ### Passos para reproduzir
 
@@ -407,8 +457,10 @@ Registros corrompidos entram na base — nome nulo, sem instrutor, sem datas. Qu
 
 | Campo | Detalhe |
 |---|---|
-| **Título** | Nome do curso aceita e renderiza HTML bruto — XSS armazenado confirmado |
-| **Módulo** | Listagem de Cursos — renderização do card |
+| **Título** | Campo "Nome do curso" permite inserção de HTML sem escape |
+| **Módulo** | Listagem de Cursos — renderização de conteúdo |
+| **Severidade** | Crítica |
+| **Impacto** | Vulnerabilidade de segurança que permite execução de scripts maliciosos no navegador de outros usuários |
 
 ### Passos para reproduzir
 
@@ -458,8 +510,10 @@ Adicionalmente, sanitizar entradas no servidor antes de persistir.
 
 | Campo | Detalhe |
 |---|---|
-| **Título** | Após clicar em "Excluir curso", o card permanece visível até o usuário recarregar a página |
+| **Título** | Após excluir um curso, o card permanece visível até recarregar a página |
 | **Módulo** | Listagem de Cursos — exclusão |
+| **Severidade** | Média |
+| **Impacto** | Interface não reflete imediatamente a ação do usuário, gerando confusão e possível repetição da ação |
 
 ### Passos para reproduzir
 
