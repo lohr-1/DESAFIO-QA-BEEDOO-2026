@@ -1,0 +1,108 @@
+{
+  "valid": {
+    "nomeCurso": "Cypress Automation Masterclass",
+    "descricao": "Aprenda testes end-to-end com Cypress do zero ao avançado.",
+    "instrutor": "Felipe Andrade",
+    "urlImagem": "https://picsum.photos/seed/cypress/640/360",
+    "dataInicio": "2026-05-01",
+    "dataFim": "2026-07-31",
+    "vagas": 30,
+    "tipoCurso": "Online"
+  },
+
+  "presencial": {
+    "nomeCurso": "Gestão de Projetos Ágeis",
+    "descricao": "Metodologias ágeis aplicadas a projetos de software.",
+    "instrutor": "Ana Souza",
+    "urlImagem": "https://picsum.photos/seed/agile/640/360",
+    "dataInicio": "2026-06-10",
+    "dataFim": "2026-08-20",
+    "vagas": 15,
+    "tipoCurso": "Presencial"
+  },
+
+  "minimalValid": {
+    "nomeCurso": "Curso Mínimo Obrigatório",
+    "descricao": "Descrição básica do curso.",
+    "instrutor": "Prof. Teste",
+    "dataInicio": "2026-05-10",
+    "dataFim": "2026-06-10",
+    "vagas": 10,
+    "tipoCurso": "Online"
+  },
+
+  "invalidDates": {
+    "nomeCurso": "Curso com Datas Invertidas",
+    "descricao": "Data de fim anterior à data de início.",
+    "instrutor": "QA Tester",
+    "urlImagem": "",
+    "dataInicio": "2026-12-31",
+    "dataFim": "2026-01-01",
+    "vagas": 5,
+    "tipoCurso": "Online"
+  },
+
+  "negativeVacancies": {
+    "nomeCurso": "Curso Vagas Negativas",
+    "descricao": "Tentativa com número negativo de vagas.",
+    "instrutor": "QA Tester",
+    "dataInicio": "2026-05-01",
+    "dataFim": "2026-06-01",
+    "vagas": -1,
+    "tipoCurso": "Online"
+  },
+
+  "zeroVacancies": {
+    "nomeCurso": "Curso Zero Vagas",
+    "descricao": "Tentativa com zero vagas.",
+    "instrutor": "QA Tester",
+    "dataInicio": "2026-05-01",
+    "dataFim": "2026-06-01",
+    "vagas": 0,
+    "tipoCurso": "Presencial"
+  },
+
+  "longStrings": {
+    "nomeCurso": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+    "descricao": "Descrição extremamente longa para testar comportamento do campo de texto quando o usuário insere muito mais conteúdo do que o esperado pelo sistema.",
+    "instrutor": "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
+    "urlImagem": "https://picsum.photos/seed/long/640/360",
+    "dataInicio": "2026-05-01",
+    "dataFim": "2026-06-01",
+    "vagas": 5,
+    "tipoCurso": "Online"
+  },
+
+  "specialChars": {
+    "nomeCurso": "Curso <script>alert('xss')</script> & \"Aspas\"",
+    "descricao": "Descrição com caracteres: <>&\"'`{}[]|\\^~",
+    "instrutor": "João d'Arc & Cia",
+    "urlImagem": "",
+    "dataInicio": "2026-05-01",
+    "dataFim": "2026-06-01",
+    "vagas": 5,
+    "tipoCurso": "Online"
+  },
+
+  "sqlInjection": {
+    "nomeCurso": "'; DROP TABLE courses; --",
+    "descricao": "1' OR '1'='1",
+    "instrutor": "admin'--",
+    "urlImagem": "",
+    "dataInicio": "2026-05-01",
+    "dataFim": "2026-06-01",
+    "vagas": 1,
+    "tipoCurso": "Online"
+  },
+
+  "forDeletion": {
+    "nomeCurso": "Curso Para Excluir",
+    "descricao": "Este curso será excluído durante o teste.",
+    "instrutor": "QA Tester",
+    "urlImagem": "",
+    "dataInicio": "2026-05-01",
+    "dataFim": "2026-05-31",
+    "vagas": 5,
+    "tipoCurso": "Online"
+  }
+}

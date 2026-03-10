@@ -1,0 +1,24 @@
+{
+  "name": "beedoo-qa-challenge",
+  "version": "1.0.0",
+  "description": "Cypress E2E test suite for Beedoo QA Challenge — course registration and listing module",
+  "private": true,
+  "scripts": {
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "cy:run:registration": "cypress run --spec 'cypress/e2e/01-course-registration.cy.js'",
+    "cy:run:validations": "cypress run --spec 'cypress/e2e/02-field-validations.cy.js'",
+    "cy:run:types": "cypress run --spec 'cypress/e2e/03-course-types.cy.js'",
+    "cy:run:listing": "cypress run --spec 'cypress/e2e/04-course-listing.cy.js'",
+    "cy:run:negative": "cypress run --spec 'cypress/e2e/05-negative-scenarios.cy.js'",
+    "cy:run:edge": "cypress run --spec 'cypress/e2e/06-unexpected-behaviors.cy.js'",
+    "cy:run:delete": "cypress run --spec 'cypress/e2e/07-course-deletion.cy.js'",
+    "cy:run:headless": "cypress run --headless --browser chrome"
+  },
+  "devDependencies": {
+    "cypress": "^13.17.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
